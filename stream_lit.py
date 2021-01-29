@@ -48,6 +48,7 @@ def main():
             st.image('./accuracy.png')
 
     if new == "Model in Action":
+        st.title("Suspicious Transaction Detection Model")
         st.markdown("Please enter your account number, this helps our model to uniquely identify customers")
         account = st.number_input("Input your account number", min_value=6210002922, max_value=6999999999)
         st.markdown("Please enter your age, our model uses this value to predict \nhow likely you are to engage in this")
