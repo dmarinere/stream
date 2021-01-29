@@ -34,7 +34,7 @@ def main():
     new = st.sidebar.selectbox("Would you want details on the model or see it in Action", ["Model Description", "Model in Action"])
 
     if new == "Model Description":
-        st.title("Fraud Detection for Fidelity Bank Dashboard")
+        st.title("Suspicious Transaction Detection for Fidelity Bank Dashboard")
         st.subheader("This Dashboard would help you understand how our fraud detection model works and what component would be needed")
         st.markdown("To run our model please choose model in Action in the sidebar")
     if new == "Model in Action":
