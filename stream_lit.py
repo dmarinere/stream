@@ -17,7 +17,7 @@ def analysis(account, age, sex, marital, amount, date):
     elif age > 50:
         if amount > 10000000 :
             x = "Suspicious"
-    elif amount > 20000: 
+    elif amount > 200000: 
        x = random.choice(["Suspicious", "Not Suspicious"])
     else:
         x = "Not Suspicious"
@@ -35,8 +35,18 @@ def main():
 
     if new == "Model Description":
         st.title("Suspicious Transaction Detection for Fidelity Bank Dashboard")
-        st.subheader("This Dashboard would help you understand how our fraud detection model works and what component would be needed")
+        st.subheader("This Dashboard would help you understand how our Suspicious Transaction model works and what component would be needed")
         st.markdown("To run our model please choose model in Action in the sidebar")
+        
+        st.markdown("If you are interested in finding out more about this model click the select box below\n it shows a plot of the important features and our model accuracy")
+        st.markdown("\nIf you want to know more about our model performance, \nselect what you would want to know")
+        sel = st.radio("Please select what you would like to know", ["Feature Importance", "Model Accuracy"])
+        if sel == "Feature Importance":
+           st.image('./features.png')
+        if sel =="Model Accuracy":
+            st.markdown("**Model Accuracy is 0.9980**  \n\nThe image below shows the accuracy of our model in flagging suspicious transaction, \nThe Horizontal line shows the value that was predicted and the vertical line the Actual values     \nOur model made a total of 70 wrong prediction, It labelled 61 transactions as suspicious which weren't and 9 transactions and not suspicious but they were")
+            st.image('./accuracy.png')
+
     if new == "Model in Action":
         st.markdown("Please enter your account number, this helps our model to uniquely identify customers")
         account = st.number_input("Input your account number", min_value=6210002922, max_value=6999999999)
