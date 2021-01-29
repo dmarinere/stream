@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd 
 import datetime
 import random
-
+random.seed(128)
 
 
 def analysis(account, age, sex, marital, amount, date):
