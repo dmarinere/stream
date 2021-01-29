@@ -40,7 +40,7 @@ def main():
         
         st.markdown("If you are interested in finding out more about this model click the select box below\n it shows a plot of the important features and our model accuracy")
         st.markdown("\nIf you want to know more about our model performance, \nselect what you would want to know")
-        sel = st.radio("Please select what you would like to know", ["Feature Importance", "Model Accuracy"])
+        sel = st.radio("Please select what you would like to know", ["None","Feature Importance", "Model Accuracy"])
         if sel == "Feature Importance":
            st.image('./features.png')
         if sel =="Model Accuracy":
