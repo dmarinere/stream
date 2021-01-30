@@ -6,6 +6,7 @@ random.seed(128)
 
 
 def analysis(account, age, sex, marital, amount, date):
+    x = "Not Suspicious"
     if age > 18 and age < 32 : 
         if sex  == "Male": 
             if amount > 50000000: 
