@@ -6,24 +6,19 @@ import gzip
 import dill
 random.seed(128)
 
+marital_dict = {"Single": 0, "Married" : 1, "Divorced": 2}
+
 
 def analysis(account, age, sex, marital, amount, date):
-    x = "Not Suspicious"
-    if age > 18 and age < 32 : 
-        if sex  == "Male": 
-            if amount > 50000000: 
-                x = "Suspicious"
-    elif  age > 32 and age < 50:
-            if amount > 10000000:
-                x= "Suspicious"
-
-    elif age > 50:
-        if amount > 10000000 :
-            x = "Suspicious"
-    elif amount > 200000: 
-       x = random.choice(["Suspicious", "Not Suspicious"])
-    else:
-        x = "Not Suspicious"
+    sex_dict = {"Male": 0, "Female": 1 }
+    data = pd.DataFrame({"Account": [account] ,"Age": [age], "sex": [sex_dict[sex]], 'marital' : [marital_dict[marital]], 'Amount': [amount], "Date" : [date] })
+    with gzip.open('model.dill.gzip', 'rb') as f:
+        model = dill.load(f)
+    prediction = (model.predict(data))
+    if prediction == 0:
+        x ="Not Suspicious"
+    elif prediction == 1:
+        x = "Suspicious"
     return x
     
             
